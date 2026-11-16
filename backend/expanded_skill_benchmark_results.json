@@ -1,0 +1,160 @@
+{
+  "total_ground_truth": 137,
+  "total_tp": 137,
+  "total_fp": 5,
+  "total_fn": 0,
+  "precision": 96.48,
+  "recall": 100.0,
+  "f1": 98.21,
+  "cases": [
+    {
+      "id": "BENCH-01",
+      "category": "Core Full-Stack & Plurals",
+      "gt_count": 15,
+      "predicted_count": 15,
+      "tp": 15,
+      "fp": 0,
+      "fn": 0,
+      "fp_list": [],
+      "fn_list": [],
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1": 100.0
+    },
+    {
+      "id": "BENCH-02",
+      "category": "Data Science & Machine Learning",
+      "gt_count": 23,
+      "predicted_count": 23,
+      "tp": 23,
+      "fp": 0,
+      "fn": 0,
+      "fp_list": [],
+      "fn_list": [],
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1": 100.0
+    },
+    {
+      "id": "BENCH-03",
+      "category": "DevOps & Cloud Engineering",
+      "gt_count": 20,
+      "predicted_count": 20,
+      "tp": 20,
+      "fp": 0,
+      "fn": 0,
+      "fp_list": [],
+      "fn_list": [],
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1": 100.0
+    },
+    {
+      "id": "BENCH-04",
+      "category": "Similar But Distinct Languages (Disambiguation)",
+      "gt_count": 10,
+      "predicted_count": 11,
+      "tp": 10,
+      "fp": 1,
+      "fn": 0,
+      "fp_list": [
+        "Microservices"
+      ],
+      "fn_list": [],
+      "precision": 90.91,
+      "recall": 100.0,
+      "f1": 95.24
+    },
+    {
+      "id": "BENCH-05",
+      "category": "Compound Skills & Sub-token Containment",
+      "gt_count": 12,
+      "predicted_count": 12,
+      "tp": 12,
+      "fp": 0,
+      "fn": 0,
+      "fp_list": [],
+      "fn_list": [],
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1": 100.0
+    },
+    {
+      "id": "BENCH-06",
+      "category": "False Positive Resistance (Unrelated English Contexts)",
+      "gt_count": 4,
+      "predicted_count": 6,
+      "tp": 4,
+      "fp": 2,
+      "fn": 0,
+      "fp_list": [
+        "Go",
+        "Swift"
+      ],
+      "fn_list": [],
+      "precision": 66.67,
+      "recall": 100.0,
+      "f1": 80.0
+    },
+    {
+      "id": "BENCH-07",
+      "category": "Repeated Skills & Case Invariance",
+      "gt_count": 7,
+      "predicted_count": 7,
+      "tp": 7,
+      "fp": 0,
+      "fn": 0,
+      "fp_list": [],
+      "fn_list": [],
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1": 100.0
+    },
+    {
+      "id": "BENCH-08",
+      "category": "Unusual Resume Sections & Side Projects",
+      "gt_count": 9,
+      "predicted_count": 9,
+      "tp": 9,
+      "fp": 0,
+      "fn": 0,
+      "fp_list": [],
+      "fn_list": [],
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1": 100.0
+    },
+    {
+      "id": "BENCH-09",
+      "category": "Modern Frontend & State Management",
+      "gt_count": 16,
+      "predicted_count": 17,
+      "tp": 16,
+      "fp": 1,
+      "fn": 0,
+      "fp_list": [
+        "Agile Methodologies"
+      ],
+      "fn_list": [],
+      "precision": 94.12,
+      "recall": 100.0,
+      "f1": 96.97
+    },
+    {
+      "id": "BENCH-10",
+      "category": "Enterprise Backend & Databases",
+      "gt_count": 21,
+      "predicted_count": 22,
+      "tp": 21,
+      "fp": 1,
+      "fn": 0,
+      "fp_list": [
+        "Leadership"
+      ],
+      "fn_list": [],
+      "precision": 95.45,
+      "recall": 100.0,
+      "f1": 97.67
+    }
+  ]
+}

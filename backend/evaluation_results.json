@@ -1,0 +1,418 @@
+{
+  "scenarios": [
+    {
+      "id": "TC-01",
+      "category": "Matching Accuracy",
+      "description": "Strong match full-stack engineer against full-stack JD",
+      "expected": "Moderate-to-High Text Match (>=35%), Missing Skills = 0",
+      "actual_score": 44.4,
+      "actual_matched": [
+        "Docker",
+        "FastAPI",
+        "Git",
+        "PostgreSQL",
+        "Problem Solving",
+        "Python",
+        "REST APIs",
+        "React.js"
+      ],
+      "actual_missing": [],
+      "status": "PASS",
+      "notes": "Score 44.4%, Coverage 100.0%"
+    },
+    {
+      "id": "TC-02",
+      "category": "Skill Gap Detection",
+      "description": "Backend engineer applying for Full-Stack JD",
+      "expected": "Missing frontend stack: React.js, TypeScript, Tailwind CSS",
+      "actual_score": 10.5,
+      "actual_matched": [
+        "Docker",
+        "FastAPI",
+        "PostgreSQL",
+        "Python"
+      ],
+      "actual_missing": [
+        "React.js",
+        "Tailwind CSS",
+        "TypeScript"
+      ],
+      "status": "PASS",
+      "notes": "Correctly detected missing frontend requirements: ['React.js', 'Tailwind CSS', 'TypeScript']"
+    },
+    {
+      "id": "TC-03",
+      "category": "Negative Discrimination",
+      "description": "Finance/Accounting resume evaluated against DevOps Lead JD",
+      "expected": "Low Match Score (<15%), 0 Matched Technical Skills",
+      "actual_score": 0.0,
+      "actual_matched": [],
+      "actual_missing": [
+        "AWS",
+        "CI/CD",
+        "Docker",
+        "Helm",
+        "Kubernetes",
+        "Linux",
+        "Python",
+        "Terraform"
+      ],
+      "status": "PASS",
+      "notes": "Score 0.0% properly reflects zero technical overlap."
+    },
+    {
+      "id": "TC-04",
+      "category": "Skill Gap Detection",
+      "description": "Experienced backend dev lacking container orchestration (Kubernetes, Helm)",
+      "expected": "Kubernetes & Helm flagged as Missing Skills",
+      "actual_score": 6.3,
+      "actual_matched": [
+        "Docker",
+        "Python"
+      ],
+      "actual_missing": [
+        "Helm",
+        "Kubernetes"
+      ],
+      "status": "PASS",
+      "notes": "Flagged gaps: ['Helm', 'Kubernetes']"
+    },
+    {
+      "id": "TC-05",
+      "category": "Taxonomy Segregation",
+      "description": "Frontend applicant with extra Machine Learning proficiencies",
+      "expected": "PyTorch / TensorFlow / Computer Vision classified under Additional Skills",
+      "actual_score": 33.6,
+      "actual_matched": [
+        "CSS",
+        "HTML",
+        "JavaScript",
+        "React.js",
+        "Tailwind CSS"
+      ],
+      "actual_missing": [],
+      "status": "PASS",
+      "notes": "Additional skills segregated cleanly: ['Computer Vision', 'Deep Learning', 'NumPy', 'Pandas']"
+    },
+    {
+      "id": "TC-06",
+      "category": "Extraction Robustness",
+      "description": "Two-column formatted resume layout",
+      "expected": "PyMuPDF correctly extracts text across both blocks without corruption",
+      "actual_score": 18.5,
+      "actual_matched": [
+        "Docker",
+        "FastAPI",
+        "Python"
+      ],
+      "actual_missing": [],
+      "status": "PASS",
+      "notes": "Extracted 277 chars, correctly matched skills."
+    },
+    {
+      "id": "TC-07",
+      "category": "Boundary Condition",
+      "description": "Very short sparse resume (~25 words, but > 50 chars)",
+      "expected": "Extraction passes > 50 char check and accurately extracts the few present skills",
+      "actual_score": 22.2,
+      "actual_matched": [
+        "Git",
+        "Problem Solving",
+        "Python",
+        "SQL"
+      ],
+      "actual_missing": [],
+      "status": "PASS",
+      "notes": "Extracted 144 chars, matched: ['Git', 'Problem Solving', 'Python', 'SQL']"
+    },
+    {
+      "id": "TC-08",
+      "category": "Scalability / Volume",
+      "description": "Extensive multi-project resume (~1,200 words)",
+      "expected": "Handles large input without truncation error, match score >= 35%",
+      "actual_score": 51.8,
+      "actual_matched": [
+        "AWS",
+        "CI/CD",
+        "Docker",
+        "FastAPI",
+        "Kubernetes",
+        "PostgreSQL",
+        "Python",
+        "React.js"
+      ],
+      "actual_missing": [],
+      "status": "PASS",
+      "notes": "Extracted 2109 chars, score 51.8%"
+    },
+    {
+      "id": "TC-09",
+      "category": "Extraction Robustness",
+      "description": "Resume with non-standard section titles ('Arsenal', 'Voyage')",
+      "expected": "Skills extracted properly despite creative headings",
+      "actual_score": 31.2,
+      "actual_matched": [
+        "Docker",
+        "FastAPI",
+        "PostgreSQL",
+        "Problem Solving",
+        "Python",
+        "REST APIs"
+      ],
+      "actual_missing": [
+        "Leadership"
+      ],
+      "status": "PASS",
+      "notes": "Extracted skills matched: ['Docker', 'FastAPI', 'PostgreSQL', 'Problem Solving', 'Python', 'REST APIs']"
+    },
+    {
+      "id": "TC-10",
+      "category": "Negative Discrimination",
+      "description": "Abstract resume containing zero technical skills",
+      "expected": "0 Matched Skills, High Missing Skills count",
+      "actual_score": 0.0,
+      "actual_matched": [],
+      "actual_missing": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "PostgreSQL",
+        "Python",
+        "React.js"
+      ],
+      "status": "PASS",
+      "notes": "Correctly detected 0 matched skills, flagged all 6 as missing."
+    },
+    {
+      "id": "TC-11",
+      "category": "Cross-JD Evaluation",
+      "description": "Full-Stack resume tested against purely Frontend JD",
+      "expected": "High frontend match, missing Redux/Next.js flagged",
+      "actual_score": 30.8,
+      "actual_matched": [
+        "CSS",
+        "HTML",
+        "JavaScript",
+        "React.js",
+        "Tailwind CSS",
+        "TypeScript"
+      ],
+      "actual_missing": [
+        "Jest",
+        "Next.js",
+        "Redux"
+      ],
+      "status": "PASS",
+      "notes": "Matched frontend core: ['CSS', 'HTML', 'JavaScript', 'React.js', 'Tailwind CSS', 'TypeScript']"
+    },
+    {
+      "id": "TC-12",
+      "category": "Cross-JD Evaluation",
+      "description": "Same Full-Stack resume tested against Data Science / ML JD",
+      "expected": "Low Match Score (<20%), All ML tools identified as missing",
+      "actual_score": 0.0,
+      "actual_matched": [],
+      "actual_missing": [
+        "Computer Vision",
+        "Deep Learning",
+        "Machine Learning",
+        "Natural Language Processing",
+        "NumPy",
+        "Pandas",
+        "PyTorch",
+        "Scikit-Learn",
+        "TensorFlow"
+      ],
+      "status": "PASS",
+      "notes": "Properly identifies gap between web stack and ML JD: 0.0%"
+    },
+    {
+      "id": "TC-13",
+      "category": "Candidate Comparison",
+      "description": "Senior/Principal engineer profile against Staff Engineer JD",
+      "expected": "High Alignment (>=30%), High Skill Coverage (>=80%)",
+      "actual_score": 36.4,
+      "actual_matched": [
+        "AWS",
+        "CI/CD",
+        "Docker",
+        "FastAPI",
+        "Kubernetes",
+        "PostgreSQL",
+        "Python",
+        "Redis",
+        "Team Leadership"
+      ],
+      "actual_missing": [],
+      "status": "PASS",
+      "notes": "Score 36.4%, Coverage 100.0%"
+    },
+    {
+      "id": "TC-14",
+      "category": "Candidate Comparison",
+      "description": "Junior profile on same Staff Engineer JD",
+      "expected": "Score significantly lower than Senior candidate (< 25%)",
+      "actual_score": 1.8,
+      "actual_matched": [
+        "Python"
+      ],
+      "actual_missing": [
+        "AWS",
+        "CI/CD",
+        "Docker",
+        "FastAPI",
+        "Kubernetes",
+        "PostgreSQL",
+        "Redis",
+        "Team Leadership"
+      ],
+      "status": "PASS",
+      "notes": "Junior 1.8% vs Senior 36.4% correctly differentiates seniority."
+    },
+    {
+      "id": "TC-15",
+      "category": "Error Handling",
+      "description": "Corrupted binary file disguised as .pdf",
+      "expected": "HTTP 400 with descriptive error",
+      "actual_score": "N/A",
+      "actual_matched": [],
+      "actual_missing": [],
+      "status": "PASS",
+      "notes": "Returned status 400: Invalid or corrupted PDF file. Please upload a standard text PDF: Failed to open stream"
+    },
+    {
+      "id": "TC-16",
+      "category": "Error Handling",
+      "description": "Completely empty 0-byte PDF upload",
+      "expected": "HTTP 400 with 'Empty PDF file' detail",
+      "actual_score": "N/A",
+      "actual_matched": [],
+      "actual_missing": [],
+      "status": "PASS",
+      "notes": "Returned status 400: Empty PDF file uploaded."
+    },
+    {
+      "id": "TC-17",
+      "category": "File Validation",
+      "description": "Text file upload (.txt instead of .pdf)",
+      "expected": "HTTP 400 with 'Only PDF resume documents are supported'",
+      "actual_score": "N/A",
+      "actual_matched": [],
+      "actual_missing": [],
+      "status": "PASS",
+      "notes": "Returned status 400: Only PDF resume documents are supported. Please upload a .pdf file."
+    },
+    {
+      "id": "TC-18",
+      "category": "Input Validation",
+      "description": "Scanned image or unreadable PDF with under 50 extracted characters",
+      "expected": "HTTP 400 warning candidate about scanned image",
+      "actual_score": "N/A",
+      "actual_matched": [],
+      "actual_missing": [],
+      "status": "PASS",
+      "notes": "Returned status 400: The uploaded PDF appears to be a scanned image or empty. Please upload a text-selectable PDF."
+    },
+    {
+      "id": "TC-19",
+      "category": "Input Validation",
+      "description": "Whitespace-only / empty job description submission",
+      "expected": "HTTP 400 requiring minimum 30 characters",
+      "actual_score": "N/A",
+      "actual_matched": [],
+      "actual_missing": [],
+      "status": "PASS",
+      "notes": "Returned status 400: Job description is too short. Please provide at least 30 characters of job requirements."
+    },
+    {
+      "id": "TC-20",
+      "category": "Input Validation",
+      "description": "Job description below 30 characters limit",
+      "expected": "HTTP 400 requiring minimum 30 characters",
+      "actual_score": "N/A",
+      "actual_matched": [],
+      "actual_missing": [],
+      "status": "PASS",
+      "notes": "Returned status 400: Job description is too short. Please provide at least 30 characters of job requirements."
+    },
+    {
+      "id": "TC-21",
+      "category": "Edge-Case Characters",
+      "description": "Resume with foreign accents (\u00e9, \u00fc), symbols (C++, C#), quotes, and emojis",
+      "expected": "Extracted without encoding crashes, C++ and C# recognized",
+      "actual_score": 22.1,
+      "actual_matched": [
+        "C#",
+        "C++",
+        "CI/CD",
+        "Node.js"
+      ],
+      "actual_missing": [],
+      "status": "PASS",
+      "notes": "Clean extraction, matched: ['C#', 'C++', 'CI/CD', 'Node.js']"
+    },
+    {
+      "id": "TC-22",
+      "category": "Generative AI Integration",
+      "description": "Live Google Gemini API call with actual user credentials",
+      "expected": "Status 200 with JSON structured insights, source tagged 'Google Gemini AI'",
+      "actual_score": 44.4,
+      "actual_matched": [
+        "Docker",
+        "FastAPI",
+        "Git",
+        "PostgreSQL",
+        "Problem Solving",
+        "Python",
+        "REST APIs",
+        "React.js"
+      ],
+      "actual_missing": [],
+      "status": "FAIL",
+      "notes": "AI Source: Offline Contextual Synthesis (Fallback). Executive summary: Your resume demonstrates a 44.4% lexical alignment with the job description. You..."
+    },
+    {
+      "id": "TC-23",
+      "category": "Error Resilience",
+      "description": "Simulated authentication failure on Gemini API",
+      "expected": "HTTP 200 with source explicitly tagged as Fallback",
+      "actual_score": 44.4,
+      "actual_matched": [
+        "Docker",
+        "FastAPI",
+        "Git",
+        "PostgreSQL",
+        "Problem Solving",
+        "Python",
+        "REST APIs",
+        "React.js"
+      ],
+      "actual_missing": [],
+      "status": "PASS",
+      "notes": "Graceful fallback triggered. Source: Offline Contextual Synthesis (Fallback)"
+    },
+    {
+      "id": "TC-24",
+      "category": "Interactive AI Chat",
+      "description": "Candidate inquiring about strengths and next learning steps",
+      "expected": "HTTP 200 with contextual advice mentioning candidate skills",
+      "actual_score": "N/A",
+      "actual_matched": [],
+      "actual_missing": [],
+      "status": "PASS",
+      "notes": "Answer preview: Hello! I'm your MatchMyResume AI Career Assistant. Based on your current resume analysis, here is a ..."
+    }
+  ],
+  "metrics": {
+    "total": 24,
+    "passed": 23,
+    "failed": 1,
+    "pass_rate": 95.8,
+    "skill_tp": 19,
+    "skill_fp": 1,
+    "skill_fn": 0,
+    "skill_precision": 95.0,
+    "skill_recall": 100.0,
+    "skill_f1": 97.44
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "live_api": {
+    "status": "FAIL",
+    "error": "Server error '503 Service Unavailable' for url 'https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent?key=REDACTED'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"
+  },
+  "chat_test": {
+    "status": "PASS",
+    "snippet": "Based on your resume analysis, the most critical missing skill you need to learn for this target role is **Kubernetes**. \n\nWhile your current experien",
+    "mentions_gap": true
+  },
+  "missing_key_test": {
+    "status": "PASS",
+    "source": "Offline Contextual Synthesis (Fallback)"
+  },
+  "invalid_key_test": {
+    "status": "PASS",
+    "source": "Offline Contextual Synthesis (Fallback)"
+  }
+}

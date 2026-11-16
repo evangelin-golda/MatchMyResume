@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-botanical-start: #E8F3DE;
+    --bg-botanical-mid: #DCEDCE;
+    --bg-botanical-end: #CCE4BC;
+    --forest-primary: #1B3E22;
+    --forest-hover: #142E19;
+    --cream-surface: #F7FAF4;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #1A371F;
+    background: linear-gradient(135deg, #E8F3DE 0%, #DBECCB 50%, #CCE4BC 100%);
+    background-attachment: fixed;
+  }
+
+  /* Custom subtle green scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(220, 237, 206, 0.4);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(45, 97, 49, 0.25);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(45, 97, 49, 0.4);
+  }
+}
+
+@layer components {
+  /* Frosted glass card inspired by Verdant Flow reference */
+  .botanical-card {
+    background-color: rgba(247, 250, 244, 0.88);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(27, 62, 34, 0.08);
+    box-shadow: 0 10px 25px -3px rgba(27, 62, 34, 0.06), 0 4px 10px -2px rgba(27, 62, 34, 0.03);
+    border-radius: 1.25rem;
+  }
+
+  /* Floating pill navigation bar */
+  .botanical-navbar {
+    background-color: rgba(247, 250, 244, 0.75);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(27, 62, 34, 0.09);
+    box-shadow: 0 4px 20px -2px rgba(27, 62, 34, 0.06);
+    border-radius: 9999px;
+  }
+
+  /* Ambient cloud / light effect from reference */
+  .ambient-glow {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    width: 600px;
+    height: 600px;
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 70%);
+  }
+}

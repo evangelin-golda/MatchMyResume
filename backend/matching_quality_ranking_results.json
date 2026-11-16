@@ -1,0 +1,335 @@
+{
+  "metrics": {
+    "ndcg_at_5": 1.0,
+    "ndcg_at_10": 0.9786,
+    "ndcg_at_20": 0.9992,
+    "precision_at_5": 100.0,
+    "precision_at_10": 90.0,
+    "spearman_rho": 0.9335,
+    "spearman_p_val": 1.895824715807064e-09
+  },
+  "grade_means": {
+    "grade_3": 25.0,
+    "grade_2": 9.5,
+    "grade_1": 1.1,
+    "grade_0": 0.0
+  },
+  "ranked_pairs": [
+    {
+      "id": "PAIR-04",
+      "human_grade": 3,
+      "score": 29.6,
+      "coverage": 100.0,
+      "matched_skills": [
+        "Computer Vision",
+        "Machine Learning",
+        "Natural Language Processing",
+        "PyTorch",
+        "Python",
+        "Scikit-Learn",
+        "TensorFlow"
+      ],
+      "missing_skills": []
+    },
+    {
+      "id": "PAIR-02",
+      "human_grade": 3,
+      "score": 27.0,
+      "coverage": 100.0,
+      "matched_skills": [
+        "Next.js",
+        "React.js",
+        "Redux",
+        "Tailwind CSS",
+        "TypeScript"
+      ],
+      "missing_skills": []
+    },
+    {
+      "id": "PAIR-01",
+      "human_grade": 3,
+      "score": 25.1,
+      "coverage": 83.3,
+      "matched_skills": [
+        "Docker",
+        "FastAPI",
+        "PostgreSQL",
+        "Python",
+        "Redis"
+      ],
+      "missing_skills": [
+        "Microservices"
+      ]
+    },
+    {
+      "id": "PAIR-05",
+      "human_grade": 3,
+      "score": 22.7,
+      "coverage": 100.0,
+      "matched_skills": [
+        "Docker",
+        "Go",
+        "Kubernetes",
+        "PostgreSQL",
+        "gRPC"
+      ],
+      "missing_skills": []
+    },
+    {
+      "id": "PAIR-03",
+      "human_grade": 3,
+      "score": 20.4,
+      "coverage": 100.0,
+      "matched_skills": [
+        "AWS",
+        "CI/CD",
+        "Docker",
+        "Helm",
+        "Kubernetes",
+        "Prometheus",
+        "Terraform"
+      ],
+      "missing_skills": []
+    },
+    {
+      "id": "PAIR-10",
+      "human_grade": 2,
+      "score": 18.1,
+      "coverage": 25.0,
+      "matched_skills": [
+        "Java",
+        "Spring Boot"
+      ],
+      "missing_skills": [
+        "AWS",
+        "Docker",
+        "Microservices",
+        "PostgreSQL",
+        "React.js",
+        "TypeScript"
+      ]
+    },
+    {
+      "id": "PAIR-07",
+      "human_grade": 2,
+      "score": 15.5,
+      "coverage": 28.6,
+      "matched_skills": [
+        "React.js",
+        "Tailwind CSS"
+      ],
+      "missing_skills": [
+        "Jest",
+        "Next.js",
+        "Redux",
+        "TypeScript",
+        "Webpack"
+      ]
+    },
+    {
+      "id": "PAIR-09",
+      "human_grade": 2,
+      "score": 7.0,
+      "coverage": 25.0,
+      "matched_skills": [
+        "Python",
+        "SQL"
+      ],
+      "missing_skills": [
+        "Deep Learning",
+        "Docker",
+        "Machine Learning",
+        "Natural Language Processing",
+        "PyTorch",
+        "Scikit-Learn"
+      ]
+    },
+    {
+      "id": "PAIR-08",
+      "human_grade": 2,
+      "score": 3.8,
+      "coverage": 22.2,
+      "matched_skills": [
+        "AWS",
+        "Docker"
+      ],
+      "missing_skills": [
+        "Ansible",
+        "CI/CD",
+        "Grafana",
+        "Helm",
+        "Kubernetes",
+        "Prometheus",
+        "Terraform"
+      ]
+    },
+    {
+      "id": "PAIR-15",
+      "human_grade": 1,
+      "score": 3.7,
+      "coverage": 0.0,
+      "matched_skills": [],
+      "missing_skills": [
+        "AWS",
+        "Hadoop",
+        "Python",
+        "Scala",
+        "Snowflake",
+        "Spark"
+      ]
+    },
+    {
+      "id": "PAIR-06",
+      "human_grade": 2,
+      "score": 3.2,
+      "coverage": 28.6,
+      "matched_skills": [
+        "Docker",
+        "Python"
+      ],
+      "missing_skills": [
+        "FastAPI",
+        "PostgreSQL",
+        "React.js",
+        "Tailwind CSS",
+        "TypeScript"
+      ]
+    },
+    {
+      "id": "PAIR-13",
+      "human_grade": 1,
+      "score": 1.6,
+      "coverage": 0.0,
+      "matched_skills": [],
+      "missing_skills": [
+        "Next.js",
+        "React.js",
+        "Redux",
+        "Tailwind CSS",
+        "TypeScript",
+        "Unit Testing",
+        "Webpack"
+      ]
+    },
+    {
+      "id": "PAIR-11",
+      "human_grade": 1,
+      "score": 0.0,
+      "coverage": 0.0,
+      "matched_skills": [],
+      "missing_skills": [
+        "CI/CD",
+        "Docker",
+        "Playwright",
+        "PyTest",
+        "Python"
+      ]
+    },
+    {
+      "id": "PAIR-12",
+      "human_grade": 1,
+      "score": 0.0,
+      "coverage": 0.0,
+      "matched_skills": [],
+      "missing_skills": [
+        "AWS",
+        "Docker",
+        "FastAPI",
+        "GraphQL",
+        "Kubernetes",
+        "Python",
+        "Redis"
+      ]
+    },
+    {
+      "id": "PAIR-14",
+      "human_grade": 1,
+      "score": 0.0,
+      "coverage": 0.0,
+      "matched_skills": [],
+      "missing_skills": [
+        "AWS",
+        "Docker",
+        "Go",
+        "Kubernetes",
+        "Linux",
+        "Prometheus",
+        "Python",
+        "Terraform"
+      ]
+    },
+    {
+      "id": "PAIR-16",
+      "human_grade": 0,
+      "score": 0.0,
+      "coverage": 0.0,
+      "matched_skills": [],
+      "missing_skills": [
+        "AWS",
+        "CI/CD",
+        "Docker",
+        "Helm",
+        "Kubernetes",
+        "Linux",
+        "Terraform"
+      ]
+    },
+    {
+      "id": "PAIR-17",
+      "human_grade": 0,
+      "score": 0.0,
+      "coverage": 0.0,
+      "matched_skills": [],
+      "missing_skills": [
+        "FastAPI",
+        "PostgreSQL",
+        "Python",
+        "React.js",
+        "Tailwind CSS",
+        "TypeScript"
+      ]
+    },
+    {
+      "id": "PAIR-18",
+      "human_grade": 0,
+      "score": 0.0,
+      "coverage": 0.0,
+      "matched_skills": [],
+      "missing_skills": [
+        "Computer Vision",
+        "Deep Learning",
+        "Machine Learning",
+        "PyTorch",
+        "Python",
+        "TensorFlow"
+      ]
+    },
+    {
+      "id": "PAIR-19",
+      "human_grade": 0,
+      "score": 0.0,
+      "coverage": 0.0,
+      "matched_skills": [],
+      "missing_skills": [
+        "Docker",
+        "Go",
+        "Kubernetes",
+        "Microservices",
+        "PostgreSQL",
+        "Redis",
+        "gRPC"
+      ]
+    },
+    {
+      "id": "PAIR-20",
+      "human_grade": 0,
+      "score": 0.0,
+      "coverage": 0.0,
+      "matched_skills": [],
+      "missing_skills": [
+        "Linux",
+        "Python"
+      ]
+    }
+  ]
+}
