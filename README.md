@@ -96,6 +96,63 @@ MatchMyResume rejects harsh dark modes and generic blue-purple gradients, opting
 
 ---
 
+## 📂 Repository Structure
+
+```tree
+MatchMyResume/
+├── backend/
+│   ├── app/                         # FastAPI application package
+│   │   ├── api/routes.py            # API routes (/api/analyze, /api/chat, /api/health)
+│   │   ├── services/                # Modular domain services
+│   │   │   ├── pdf_service.py       # Ephemeral in-memory PyMuPDF parser
+│   │   │   ├── skill_service.py     # 500+ Skill taxonomy & extraction engine
+│   │   │   ├── ml_service.py        # TF-IDF vectorization & Cosine Similarity
+│   │   │   ├── gemini_service.py    # Google Gemini integration & resilience fallback
+│   │   │   └── chat_service.py      # Factual, resume-grounded career assistant
+│   │   ├── config.py                # Pydantic environment configuration
+│   │   └── main.py                  # FastAPI factory & CORS middleware
+│   ├── tests/                       # Automated test suites
+│   │   ├── test_backend.py          # Core unit tests (PDF, skill extraction, ML, chat)
+│   │   ├── test_api_integration.py  # End-to-end FastAPI endpoint integration tests
+│   │   ├── test_gemini_resilience.py# AI error handling & offline fallback tests
+│   │   └── comprehensive_evaluation.py # 24-scenario empirical audit suite
+│   ├── scripts/                     # Verification & benchmark utilities
+│   │   ├── validate_security.py     # Repository security & secret scan
+│   │   ├── validate_skill_benchmark.py # 100+ Ground-truth skill benchmark evaluation
+│   │   ├── validate_ranking_quality.py # NDCG & Precision ranking benchmark
+│   │   ├── validate_gemini_complete.py # Live Gemini API & resilience audit
+│   │   ├── browser_validation_playwright.py # Playwright headless browser E2E test
+│   │   ├── audit_existing_results.py # Test report verification tool
+│   │   └── verify_all.py            # Sanity verification runner
+│   ├── requirements.txt             # Python dependencies
+│   └── .env.example                 # Backend environment variable template
+├── frontend/
+│   ├── src/
+│   │   ├── components/              # UI components (Navbar, Footer, Charts, Chat)
+│   │   ├── pages/                   # Views (LandingPage, AnalyzePage, DashboardPage, InsightsPage)
+│   │   ├── context/                 # React Context (AnalysisContext state management)
+│   │   ├── services/                # API client (Axios HTTP wrapper)
+│   │   └── styles/                  # Tailwind CSS styling tokens
+│   ├── package.json                 # Node dependencies & build scripts
+│   ├── tailwind.config.js           # Verdant Flow botanical green theme configuration
+│   ├── vite.config.js               # Vite build configuration & proxy setup
+│   └── .env.example                 # Frontend environment variable template
+├── docs/
+│   └── test-reports/                # Sanitized evaluation JSON benchmarks
+│       ├── evaluation_results.json
+│       ├── expanded_skill_benchmark_results.json
+│       ├── matching_quality_ranking_results.json
+│       ├── gemini_independent_validation_results.json
+│       └── security_validation_results.json
+├── MATCHMYRESUME_TEST_REPORT.md     # Primary comprehensive QA audit report
+├── FINAL_VALIDATION_REPORT.md       # Independent validation & verification report
+├── LICENSE                          # MIT License
+├── .gitignore                       # Production gitignore configuration
+└── README.md                        # Project documentation
+```
+
+---
+
 ## ✨ Key Features
 
 ### 1. In-Memory Privacy-Preserving PDF Parsing
@@ -236,6 +293,35 @@ cd MatchMyResume
    npm run dev
    ```
    Open your browser and navigate to **`http://localhost:5173`**.
+
+---
+
+## 🧪 Running Tests & Quality Benchmarks
+
+Run any unit test, integration test, or empirical benchmark directly from the project root:
+
+```bash
+# 1. Run core unit tests (PDF extraction, Skill comparison, ML TF-IDF, Chat fallback)
+python backend/tests/test_backend.py
+
+# 2. Run API integration tests
+python backend/tests/test_api_integration.py
+
+# 3. Run Gemini error handling & graceful fallback tests
+python backend/tests/test_gemini_resilience.py
+
+# 4. Run repository security audit (Secret scanner, .gitignore, RAM processing)
+python backend/scripts/validate_security.py
+
+# 5. Run 100+ Ground-truth skill extraction benchmark
+python backend/scripts/validate_skill_benchmark.py
+
+# 6. Run 20-Pair Information Retrieval ranking benchmark (NDCG & Precision@K)
+python backend/scripts/validate_ranking_quality.py
+
+# 7. Run frontend production build
+npm run build --prefix frontend
+```
 
 ---
 

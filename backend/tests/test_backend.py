@@ -1,6 +1,12 @@
 import sys
 import os
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+BACKEND_DIR = os.path.abspath(os.path.join(CURRENT_DIR, ".."))
+PROJECT_ROOT = os.path.abspath(os.path.join(BACKEND_DIR, ".."))
+for p in [BACKEND_DIR, PROJECT_ROOT]:
+    if p not in sys.path:
+        sys.path.insert(0, p)
 
 import pymupdf
 from app.services.pdf_service import extract_text_from_pdf

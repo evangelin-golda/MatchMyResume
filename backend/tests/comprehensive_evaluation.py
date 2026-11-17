@@ -3,7 +3,12 @@ import os
 import json
 import time
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+BACKEND_DIR = os.path.abspath(os.path.join(CURRENT_DIR, ".."))
+PROJECT_ROOT = os.path.abspath(os.path.join(BACKEND_DIR, ".."))
+for p in [BACKEND_DIR, PROJECT_ROOT]:
+    if p not in sys.path:
+        sys.path.insert(0, p)
 
 from fastapi.testclient import TestClient
 import pymupdf
@@ -630,7 +635,10 @@ def run_evaluation():
     print("======================================================================")
 
     # Save results as JSON for report generation
-    with open("backend/evaluation_results.json", "w") as f:
+    reports_dir = os.path.join(PROJECT_ROOT, "docs", "test-reports")
+    os.makedirs(reports_dir, exist_ok=True)
+    report_path = os.path.join(reports_dir, "evaluation_results.json")
+    with open(report_path, "w") as f:
         json.dump({
             "scenarios": results,
             "metrics": {

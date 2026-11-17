@@ -3,10 +3,21 @@ import json
 import sys
 from dotenv import load_dotenv
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from backend.app.config import settings
-from backend.app.services.gemini_service import generate_contextual_feedback, call_gemini_api
-from backend.app.services.chat_service import answer_resume_question
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+BACKEND_DIR = os.path.abspath(os.path.join(CURRENT_DIR, ".."))
+PROJECT_ROOT = os.path.abspath(os.path.join(BACKEND_DIR, ".."))
+for p in [BACKEND_DIR, PROJECT_ROOT]:
+    if p not in sys.path:
+        sys.path.insert(0, p)
+
+try:
+    from app.config import settings
+    from app.services.gemini_service import generate_contextual_feedback, call_gemini_api
+    from app.services.chat_service import answer_resume_question
+except ImportError:
+    from backend.app.config import settings
+    from backend.app.services.gemini_service import generate_contextual_feedback, call_gemini_api
+    from backend.app.services.chat_service import answer_resume_question
 
 def validate_gemini():
     print("=" * 80)
@@ -114,7 +125,10 @@ def validate_gemini():
         print(f"  • {k:<20}: Status {v['status']}")
     print("=" * 80)
     
-    with open("backend/gemini_independent_validation_results.json", "w") as f:
+    reports_dir = os.path.join(PROJECT_ROOT, "docs", "test-reports")
+    os.makedirs(reports_dir, exist_ok=True)
+    report_file = os.path.join(reports_dir, "gemini_independent_validation_results.json")
+    with open(report_file, "w") as f:
         json.dump(results, f, indent=2)
 
 if __name__ == "__main__":

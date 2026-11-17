@@ -3,8 +3,17 @@ from typing import Set, Dict, List
 import sys
 import os
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from backend.app.services.skill_service import extract_skills
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+BACKEND_DIR = os.path.abspath(os.path.join(CURRENT_DIR, ".."))
+PROJECT_ROOT = os.path.abspath(os.path.join(BACKEND_DIR, ".."))
+for p in [BACKEND_DIR, PROJECT_ROOT]:
+    if p not in sys.path:
+        sys.path.insert(0, p)
+
+try:
+    from app.services.skill_service import extract_skills
+except ImportError:
+    from backend.app.services.skill_service import extract_skills
 
 # ==============================================================================
 # EXPANDED SKILL EXTRACTION BENCHMARK (100+ Ground-Truth Skill Instances)
@@ -261,7 +270,10 @@ def run_benchmark():
     print("=" * 80)
     
     import json
-    with open("backend/expanded_skill_benchmark_results.json", "w") as f:
+    reports_dir = os.path.join(PROJECT_ROOT, "docs", "test-reports")
+    os.makedirs(reports_dir, exist_ok=True)
+    report_file = os.path.join(reports_dir, "expanded_skill_benchmark_results.json")
+    with open(report_file, "w") as f:
         json.dump({
             "total_ground_truth": total_gt,
             "total_tp": total_tp,

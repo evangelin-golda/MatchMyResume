@@ -3,9 +3,18 @@ import json
 import os
 import sys
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+BACKEND_DIR = os.path.abspath(os.path.join(CURRENT_DIR, ".."))
+PROJECT_ROOT = os.path.abspath(os.path.join(BACKEND_DIR, ".."))
+for p in [BACKEND_DIR, PROJECT_ROOT]:
+    if p not in sys.path:
+        sys.path.insert(0, p)
+
 from playwright.sync_api import sync_playwright
-from backend.comprehensive_evaluation import create_pdf
+try:
+    from backend.tests.comprehensive_evaluation import create_pdf
+except ImportError:
+    from tests.comprehensive_evaluation import create_pdf
 
 def run_browser_validation():
     print("=" * 80)
@@ -248,7 +257,10 @@ def run_browser_validation():
         print(f"  • {k:<25}: Status {v['status']}")
     print("=" * 80)
     
-    with open("backend/browser_validation_results.json", "w") as f:
+    reports_dir = os.path.join(PROJECT_ROOT, "docs", "test-reports")
+    os.makedirs(reports_dir, exist_ok=True)
+    report_file = os.path.join(reports_dir, "browser_validation_results.json")
+    with open(report_file, "w") as f:
         json.dump(results, f, indent=2)
 
 if __name__ == "__main__":

@@ -1,6 +1,10 @@
 import os
 import re
 import json
+import sys
+
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "..", ".."))
 
 def audit_security():
     print("=" * 80)
@@ -10,7 +14,7 @@ def audit_security():
     findings = []
     
     # 1. Check .gitignore
-    gitignore_path = ".gitignore"
+    gitignore_path = os.path.join(PROJECT_ROOT, ".gitignore")
     if os.path.exists(gitignore_path):
         with open(gitignore_path, "r") as f:
             content = f.read()
@@ -35,15 +39,17 @@ def audit_security():
         re.compile(r'sk-[0-9A-Za-z-_]{30,}')
     ]
     
+    frontend_src = os.path.join(PROJECT_ROOT, "frontend", "src")
     leaks_in_src = []
-    for root, _, files in os.walk("frontend/src"):
-        for file in files:
-            filepath = os.path.join(root, file)
-            with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
-                code = f.read()
-                for pat in secret_patterns:
-                    if pat.search(code):
-                        leaks_in_src.append(filepath)
+    if os.path.exists(frontend_src):
+        for root, _, files in os.walk(frontend_src):
+            for file in files:
+                filepath = os.path.join(root, file)
+                with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+                    code = f.read()
+                    for pat in secret_patterns:
+                        if pat.search(code):
+                            leaks_in_src.append(filepath)
                         
     findings.append({
         "check": "Frontend Source Code Secret Scan (frontend/src/)",
@@ -52,9 +58,10 @@ def audit_security():
     })
     
     # 3. Frontend Production Build Scan (frontend/dist/)
+    frontend_dist = os.path.join(PROJECT_ROOT, "frontend", "dist")
     leaks_in_dist = []
-    if os.path.exists("frontend/dist"):
-        for root, _, files in os.walk("frontend/dist"):
+    if os.path.exists(frontend_dist):
+        for root, _, files in os.walk(frontend_dist):
             for file in files:
                 filepath = os.path.join(root, file)
                 with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
@@ -75,10 +82,12 @@ def audit_security():
         })
         
     # 4. Backend In-Memory File Processing
-    with open("backend/app/main.py", "r", encoding="utf-8") as f:
+    main_py = os.path.join(PROJECT_ROOT, "backend", "app", "main.py")
+    with open(main_py, "r", encoding="utf-8") as f:
         main_code = f.read()
         
-    with open("backend/app/services/pdf_service.py", "r", encoding="utf-8") as f:
+    pdf_py = os.path.join(PROJECT_ROOT, "backend", "app", "services", "pdf_service.py")
+    with open(pdf_py, "r", encoding="utf-8") as f:
         pdf_code = f.read()
         
     uses_memory_read = "await resume_file.read()" in main_code
@@ -110,7 +119,10 @@ def audit_security():
 
     print(json.dumps(findings, indent=2))
     
-    with open("backend/security_validation_results.json", "w") as f:
+    reports_dir = os.path.join(PROJECT_ROOT, "docs", "test-reports")
+    os.makedirs(reports_dir, exist_ok=True)
+    report_file = os.path.join(reports_dir, "security_validation_results.json")
+    with open(report_file, "w") as f:
         json.dump(findings, f, indent=2)
 
 if __name__ == "__main__":

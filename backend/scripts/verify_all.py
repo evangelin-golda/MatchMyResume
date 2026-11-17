@@ -1,19 +1,26 @@
 import time
 import subprocess
 import requests
+import os
+import sys
+
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "..", ".."))
 
 def verify_all():
     print("--- STEP 1: Starting Backend & Frontend ---")
+    be_dir = os.path.join(PROJECT_ROOT, "backend")
+    fe_dir = os.path.join(PROJECT_ROOT, "frontend")
     be_proc = subprocess.Popen(
         ["python", "-m", "uvicorn", "app.main:app", "--host", "127.0.0.1", "--port", "8001"],
-        cwd="e:\\MatchMyResume\\backend",
+        cwd=be_dir,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True
     )
     fe_proc = subprocess.Popen(
         ["cmd.exe", "/c", "npm run dev -- --port 5173 --host 127.0.0.1"],
-        cwd="e:\\MatchMyResume\\frontend",
+        cwd=fe_dir,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True

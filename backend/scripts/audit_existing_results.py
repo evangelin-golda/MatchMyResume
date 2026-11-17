@@ -1,7 +1,15 @@
 import json
+import os
+import sys
+
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "..", ".."))
 
 def audit():
-    with open("backend/evaluation_results.json", "r") as f:
+    file_path = os.path.join(PROJECT_ROOT, "docs", "test-reports", "evaluation_results.json")
+    if not os.path.exists(file_path):
+        file_path = os.path.join(PROJECT_ROOT, "backend", "evaluation_results.json")
+    with open(file_path, "r") as f:
         data = json.load(f)
         
     scenarios = data.get("scenarios", [])

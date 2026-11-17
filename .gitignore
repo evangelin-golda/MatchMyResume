@@ -24,6 +24,14 @@ env/
 venv/
 ENV/
 .venv
+.pytest_cache/
+.coverage
+coverage/
+
+# Test artifacts & Temporary files
+temp_test/
+backend/temp_test/
+*.pdf
 
 # IDE & Editor
 .vscode/
